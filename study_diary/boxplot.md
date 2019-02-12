@@ -41,16 +41,12 @@ IQR = Q3-Q1，即上四分位数与下四分位数之间的差，也就是盒子
 　　
 
 seaborn(sns)调用举例：
+'''
 import seaborn as sns
 sns.set_style("whitegrid")
 tips = sns.load_dataset("tips")
-# 绘制箱线图
 ax = sns.boxplot(x=tips["total_bill"])
-# 竖着放的箱线图，也就是将x换成y
 ax = sns.boxplot(y=tips["total_bill"])
---------------------- 
-作者：java师 
-来源：CSDN 
-原文：https://blog.csdn.net/raintungl/article/details/78188158 
-版权声明：本文为博主原创文章，转载请附上博文链接！
+'''
+
 
