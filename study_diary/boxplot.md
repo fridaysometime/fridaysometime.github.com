@@ -5,7 +5,7 @@
 
 由于现实数据中总是存在各式各样地“脏数据”，也成为“离群点”，于是为了不因这些少数的离群数据导致整体特征的偏移，将这些离群点单独汇出，而盒图中的胡须的两级修改成最小观测值与最大观测值。这里有个经验，就是最大(最小)观测值设置为与四分位数值间距离为1.5个IQR(中间四分位数极差)。即：
 
-![http://images2017.cnblogs.com/blog/884095/201710/884095-20171009221403902-824833776.png][标记]
+![http://images2017.cnblogs.com/blog/884095/201710/884095-20171009221403902-824833776.png][标记1]
 
 
  IQR = Q3-Q1，即上四分位数与下四分位数之间的差，也就是盒子的长度。
@@ -33,11 +33,13 @@ Q1 = 2865　Q2 = 2905(中位数)　Q3 = 3000
 1. 画一只箱子，箱子两端分别位于第一个和第三个四分位数上。对于薪水数据来说,Q1 = 2865以及Q3 = 3000。这个箱子包括中间50％的数据。
 2. 在箱子中位数(薪水数据是2905)的位置画一条垂直线。
 3. 用四分位数全距IQR = Q3 − Q1，确定限制线的位置。箱线图的上、下限制线分别在比Q1低1.5(IQR)和比Q3高1.5(IQR)的位置上。对于薪水数据来说，IQR = Q3 − Q1 = 3000 − 2865 = 135。因此，限制线的位置在2865 − 1.5(135) = 2662.5和3000 + 1.5(135) = 3202.5处。两条限制线以外的数据可以认为是异常值。
+
+![https://bbsmax.ikafan.com/static/L3Byb3h5L2h0dHAvd2lraS5tYmFsaWIuY29tL3cvaW1hZ2VzLzYvNjkvJUU1JTlCJUJFMV8lRTglQjUlQjclRTglOTYlQUElRTYlOTUlQjAlRTYlOEQlQUUlRTUlQjglQTYlRTYlOUMlODklRTQlQjglOEElRTQlQjglOEIlRTklOTklOTAlRTUlODglQjYlRTclQkElQkYlRTclOUElODQlRTclQUUlQjElRTclQkElQkYlRTUlOUIlQkUuanBn.jpg][标记2]
 4. 图1中的虚线称为触须线。触须线从箱子两端开始绘制，直至第3步中计算的限制线内的最小值和最大值。因此，薪水数据的触须线分别在2 710和3 130处结束。
 5. 最后，每个异常值的位置都用星号“*”表示出来。在图1中，我们可以看到一个异常值，即3325。
 
 在图1中，我们画出了表示上下界限位置的直线。画这些线是为了说明如何计算薪水数据的限制线并标出其位置。虽然限制线通常要计算出来，但是在箱线图中一般并不标示出来。图2显示了薪水数据的常见箱线图的形状。
-
+![https://bbsmax.ikafan.com/static/L3Byb3h5L2h0dHAvd2lraS5tYmFsaWIuY29tL3cvaW1hZ2VzLzAvMGQvJUU1JTlCJUJFMl8lRTglQjUlQjclRTglOTYlQUElRTYlOTUlQjAlRTYlOEQlQUUlRTclOUElODQlRTclQUUlQjElRTclQkElQkYlRTUlOUIlQkUuanBn.jpg][标记3]
 　　
 
 seaborn(sns)调用举例：
@@ -50,4 +52,6 @@ ax = sns.boxplot(y=tips["total_bill"])
 ```
 
 
-[标记]:http://images2017.cnblogs.com/blog/884095/201710/884095-20171009221403902-824833776.png
+[标记1]:http://images2017.cnblogs.com/blog/884095/201710/884095-20171009221403902-824833776.png
+[标记2]:https://bbsmax.ikafan.com/static/L3Byb3h5L2h0dHAvd2lraS5tYmFsaWIuY29tL3cvaW1hZ2VzLzYvNjkvJUU1JTlCJUJFMV8lRTglQjUlQjclRTglOTYlQUElRTYlOTUlQjAlRTYlOEQlQUUlRTUlQjglQTYlRTYlOUMlODklRTQlQjglOEElRTQlQjglOEIlRTklOTklOTAlRTUlODglQjYlRTclQkElQkYlRTclOUElODQlRTclQUUlQjElRTclQkElQkYlRTUlOUIlQkUuanBn.jpg
+[标记3]:https://bbsmax.ikafan.com/static/L3Byb3h5L2h0dHAvd2lraS5tYmFsaWIuY29tL3cvaW1hZ2VzLzAvMGQvJUU1JTlCJUJFMl8lRTglQjUlQjclRTglOTYlQUElRTYlOTUlQjAlRTYlOEQlQUUlRTclOUElODQlRTclQUUlQjElRTclQkElQkYlRTUlOUIlQkUuanBn.jpg
