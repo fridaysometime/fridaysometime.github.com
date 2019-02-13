@@ -1,4 +1,5 @@
-###定义
+##定义
+
 **To B产品**：B即Business，To B 产品则是面向企业的产品。
 
 **To C产品**：C即Consumer，To C产品则是面向消费者的产品。
