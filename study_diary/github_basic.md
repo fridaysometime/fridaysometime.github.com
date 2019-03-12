@@ -75,5 +75,67 @@ git commit -m 'description'
 
 切换到某个快照
 
+## 分支等
 
+1. 查看分支
 
+   ```bash
+   git branch # 列出本地的分支
+   git branch -r # 列出远端分支
+   git branch -a # 列出所有分支
+   git branch -v # 查看各个分支最后一个提交对象的信息
+   git branch --merge # 查看已经合并到当前分支的分支
+   git branch --no-merge # 查看未合并到当前分支的分支
+   ```
+
+​	 
+
+2. 创建分支
+
+   ```
+   git brance feature-A # 创建一个名为feature-A的分支
+   git checkout feature-A # 切换到feature-A分支
+   git checkout -b feature-A # 创建并切换到feature-A分支
+   git checkout -b feature-A dev # 基于dev新建feature分支
+   ```
+
+3. 删除分支
+
+   ```
+   git branch -d test # 删除test分支
+   git branch -D test # 强制删除test分支
+   ```
+
+4. 合并分支
+
+   ```
+   git merge test # 把test分支合并到当前分支
+   git merge --no-ff feature-A
+   ```
+
+## Pull Request （PR）
+
+### 如果想参与别人的项目
+
+1. 在github.com上fork到自己仓库
+
+2. clone到本地
+
+3. 建立一个branch
+
+   ```
+   git branch work
+   git checkout work
+   ```
+
+4. 编程工作
+
+5. push到自己的网站
+
+   ```
+   git add path/file_name.py
+   git commit -m "填写你的说明"
+   git push origin work
+   ```
+
+6. 在github上发送PR
